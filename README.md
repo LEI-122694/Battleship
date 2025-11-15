@@ -6,4 +6,4 @@ Guilherme Alves 122661
 
 Diogo Figueira 122664 Allias: D-Figueira
 
-Daniel Gutierrez 122694 Allias: DamielGuti05
+Daniel Gutierrez 122694 Allias: DanielGuti05
