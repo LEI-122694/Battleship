@@ -1,5 +1,9 @@
 /**
- *
+ * Represents a position (cell) on the Battleship board.
+ * <p>
+ * A Position stores its row and column coordinates and tracks whether it is
+ * occupied by a ship and whether it has been hit. Positions are used by
+ * {@link Ship} implementations to represent the cells they occupy.
  */
 package iscteiul.ista.battleship;
 
@@ -12,7 +16,10 @@ public class Position implements IPosition {
     private boolean isHit;
 
     /**
+     * Create a new Position at the given row and column.
      *
+     * @param row    row index (typically 0-based)
+     * @param column column index (typically 0-based)
      */
     public Position(int row, int column) {
         this.row = row;

@@ -1,6 +1,3 @@
-/**
- *
- */
 package iscteiul.ista.battleship;
 
 import java.util.Scanner;
@@ -9,6 +6,14 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Helper tasks and small interactive entry points used for manual testing and
+ * demonstration of the Battleship functionality.
+ * <p>
+ * The class exposes several `taskX` static methods that read from stdin and
+ * exercise ship/fleet/game building and firing operations. These are useful
+ * for manual runs and can be adapted to automated tests.
+ */
 public class Tasks {
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -67,7 +72,7 @@ public class Tasks {
                         fleet.printStatus();
                     break;
                 default:
-                    LOGGER.info("Que comando é esse??? Repete lá ...");
+                    LOGGER.info("Que comando \u00e9 esse??? Repete l\u00e1 ...");
             }
             // The other commands are unknown in this task
             command = in.next();
@@ -96,7 +101,7 @@ public class Tasks {
                     LOGGER.info(fleet);
                     break;
                 default:
-                    LOGGER.info("Que comando é esse??? Repete lá ...");
+                    LOGGER.info("Que comando \u00e9 esse??? Repete l\u00e1 ...");
             }
             // The other commands are unknown in this task
             command = in.next();
@@ -142,7 +147,7 @@ public class Tasks {
                         game.printValidShots();
                     break;
                 default:
-                    LOGGER.info("Que comando é esse??? Repete ...");
+                    LOGGER.info("Que comando \u00e9 esse??? Repete ...");
             }
             command = in.next();
         }

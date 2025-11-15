@@ -1,12 +1,17 @@
-/**
- *
- */
 package iscteiul.ista.battleship;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Abstract base class for all ship types used in the Battleship game.
+ * <p>
+ * Concrete ship implementations (e.g. {@link Galleon}, {@link Frigate},
+ * {@link Carrack}, {@link Caravel}, {@link Barge}) extend this class. It
+ * stores common state such as category, bearing and the list of occupied
+ * positions and provides shared utilities used by fleet and game logic.
+ */
 public abstract class Ship implements IShip {
 
     private static final String GALEAO = "galeao";
@@ -16,10 +21,14 @@ public abstract class Ship implements IShip {
     private static final String BARCA = "barca";
 
     /**
-     * @param shipKind
-     * @param bearing
-     * @param pos
-     * @return
+     * Factory helper that builds the appropriate concrete Ship instance for the
+     * given category string.
+     *
+     * @param shipKind category string (e.g. "barca", "caravela")
+     * @param bearing  ship orientation
+     * @param pos      reference position used to position the ship
+     * @return a concrete {@link Ship} instance or {@code null} when the category
+     * is not recognized
      */
     static Ship buildShip(String shipKind, Compass bearing, Position pos) {
         Ship s;
@@ -53,9 +62,13 @@ public abstract class Ship implements IShip {
 
 
     /**
-     * @param category
-     * @param bearing
-     * @param pos
+     * Create a new Ship with the provided category, bearing and reference
+     * position. Subclasses typically fill the {@link #positions} list in their
+     * constructors.
+     *
+     * @param category ship category/name
+     * @param bearing  orientation (must not be null)
+     * @param pos      reference position (must not be null)
      */
     public Ship(String category, Compass bearing, IPosition pos) {
         assert bearing != null;
@@ -78,7 +91,10 @@ public abstract class Ship implements IShip {
     }
 
     /**
-     * @return the positions
+     * Returns the mutable list of positions that represent this ship on the
+     * board. Subclasses populate this list during construction.
+     *
+     * @return list of occupied positions
      */
     public List<IPosition> getPositions() {
         return positions;

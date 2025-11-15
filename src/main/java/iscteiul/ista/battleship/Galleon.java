@@ -1,21 +1,29 @@
-/**
- *
- */
 package iscteiul.ista.battleship;
 
+/**
+ * Represents a Galleon ("Galeao") ship in the Battleship game.
+ * <p>
+ * A Galleon occupies five board cells arranged in a specific pattern that
+ * depends on the ship's {@link Compass} bearing. The constructor delegates to
+ * helper methods that populate the occupied positions according to the
+ * selected orientation.
+ */
 public class Galleon extends Ship {
     private static final Integer SIZE = 5;
     private static final String NAME = "Galeao";
 
     /**
-     * @param bearing
-     * @param pos
+     * Create and position a new Galleon.
+     * <p>
+     * The constructor will fill the list of occupied positions using helper
+     * methods that add the shape corresponding to the provided bearing.
+     *
+     * @param bearing orientation of the ship (must not be null)
+     * @param pos     reference position used to compute occupied cells
+     * @throws IllegalArgumentException if {@code bearing} is not a supported value
      */
-    public Galleon(Compass bearing, IPosition pos) throws IllegalArgumentException {
+    public Galleon(Compass bearing, IPosition pos) {
         super(Galleon.NAME, bearing, pos);
-
-        if (bearing == null)
-            throw new NullPointerException("ERROR! invalid bearing for the galleon");
 
         switch (bearing) {
             case NORTH:
@@ -36,11 +44,6 @@ public class Galleon extends Ship {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.Ship#getSize()
-     */
     @Override
     public Integer getSize() {
         return Galleon.SIZE;

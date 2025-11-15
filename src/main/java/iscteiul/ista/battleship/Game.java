@@ -1,14 +1,13 @@
-/**
- *
- */
 package iscteiul.ista.battleship;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author fba
- *
+ * Implements a Battleship game session.
+ * <p>
+ * This class tracks shots fired, counts of invalid/repeated shots, hits and
+ * sunk ships and delegates ship queries to the associated {@link IFleet}.
  */
 public class Game implements IGame {
     private IFleet fleet;
@@ -21,7 +20,9 @@ public class Game implements IGame {
 
 
     /**
-     * @param fleet
+     * Constructs a Game instance bound to a fleet.
+     *
+     * @param fleet the fleet under attack (must not be null)
      */
     public Game(IFleet fleet) {
         shots = new ArrayList<>();
