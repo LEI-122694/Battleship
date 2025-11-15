@@ -1,3 +1,9 @@
-# Battleship
+# Colaboradores
 
-Basic academic version of Battleship game to build upon.
+Carlos Gonçalves 112966 Allias: cmmgs3, plays49
+
+Guilherme Alves 122661
+
+Diogo Figueira 122664 Allias: D-Figueira
+
+Daniel Gutierrez 122694 Allias: DamielGuti05
