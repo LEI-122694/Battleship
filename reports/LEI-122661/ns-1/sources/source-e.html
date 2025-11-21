@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > IShip</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">iscteiul.ista.battleship</a>
+</div>
+
+<h1>Coverage Summary for Class: IShip (iscteiul.ista.battleship)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">IShip</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/**
+&nbsp; * Represents a ship in the Battleship game and defines the operations that
+&nbsp; * every concrete ship implementation must provide.
+&nbsp; * &lt;p&gt;
+&nbsp; * Implementations must track their occupied positions, provide size and
+&nbsp; * category information, and expose utilities used by the fleet and game
+&nbsp; * management code (position queries, shooting, adjacency checks, etc.).
+&nbsp; */
+&nbsp;package iscteiul.ista.battleship;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;public interface IShip {
+&nbsp;
+&nbsp;    /** Returns the category/name of the ship (e.g. &quot;Galeao&quot;, &quot;Fragata&quot;). */
+&nbsp;    String getCategory();
+&nbsp;
+&nbsp;    /** Returns the total number of cells occupied by this ship. */
+&nbsp;    Integer getSize();
+&nbsp;
+&nbsp;    /** Returns the list of positions occupied by this ship. */
+&nbsp;    List&lt;IPosition&gt; getPositions();
+&nbsp;
+&nbsp;    /** Returns the reference position used when the ship was created. */
+&nbsp;    IPosition getPosition();
+&nbsp;
+&nbsp;    /** Returns the current bearing/orientation of the ship. */
+&nbsp;    Compass getBearing();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns true if the ship still has at least one non-hit position.
+&nbsp;     *
+&nbsp;     * @return true when the ship is not completely sunk
+&nbsp;     */
+&nbsp;    boolean stillFloating();
+&nbsp;
+&nbsp;    /** Returns the top-most row index among the positions occupied by this ship. */
+&nbsp;    int getTopMostPos();
+&nbsp;
+&nbsp;    /** Returns the bottom-most row index among the positions occupied by this ship. */
+&nbsp;    int getBottomMostPos();
+&nbsp;
+&nbsp;    /** Returns the left-most column index among the positions occupied by this ship. */
+&nbsp;    int getLeftMostPos();
+&nbsp;
+&nbsp;    /** Returns the right-most column index among the positions occupied by this ship. */
+&nbsp;    int getRightMostPos();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Checks whether this ship occupies the supplied position.
+&nbsp;     *
+&nbsp;     * @param pos position to test (must not be null)
+&nbsp;     * @return true if one of the ship&#39;s positions equals {@code pos}
+&nbsp;     */
+&nbsp;    boolean occupies(IPosition pos);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Checks whether this ship is too close to another ship (adjacent in any
+&nbsp;     * of the surrounding cells of any occupied position).
+&nbsp;     *
+&nbsp;     * @param other another ship to compare to (must not be null)
+&nbsp;     * @return true when any occupied cell of this ship is adjacent to any
+&nbsp;     * occupied cell of {@code other}
+&nbsp;     */
+&nbsp;    boolean tooCloseTo(IShip other);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Checks whether this ship is too close to a given board position.
+&nbsp;     *
+&nbsp;     * @param pos position to test
+&nbsp;     * @return true when any occupied cell of this ship is adjacent to {@code pos}
+&nbsp;     */
+&nbsp;    boolean tooCloseTo(IPosition pos);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Registers a shot at the provided position; implementations should mark
+&nbsp;     * the corresponding occupied position as hit when matching.
+&nbsp;     *
+&nbsp;     * @param pos position being shot (must not be null)
+&nbsp;     */
+&nbsp;    void shoot(IPosition pos);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-11-21 18:42</div>
+</div>
+</body>
+</html>
