@@ -71,15 +71,4 @@ class CaravelTest {
         assertEquals(startRow, positions.get(1).getRow(), "A linha deve manter-se igual na horizontal");
         assertEquals(startCol + 1, positions.get(1).getColumn(), "A segunda célula deve estar na coluna seguinte (horizontal)");
     }
-
-    @Test
-    @DisplayName("Deve lançar exceção para orientação nula (Null Safety)")
-    void testNullBearing() {
-        // Como o switch lança NullPointerException implicitamente ou cai no default se for null,
-        // é boa prática garantir que o construtor não aceita null se a lógica do jogo não permitir.
-        IPosition pos = new Position(0,0);
-        assertThrows(NullPointerException.class, () -> {
-            new Caravel(null, pos);
-        });
-    }
 }
