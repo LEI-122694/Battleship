@@ -67,7 +67,7 @@
     * Step 5: `shipAt` comporta-se como em `FleetTest` (posições 0,0 e 5,5 retornam os navios adequados; 9,9 retorna `null`).
     * Step 6: `printStatus()` deve executar sem lançar exceções.
 
-* [unknown] C10 PositionTest
+* [passed @LEI-112966] C10 PositionTest
     tags: #unit-tests #test-cases
     * Step 1: Testar `getRow()` usando `new Position(5,2)` e verificar que `getRow()` retorna `5`.
     * Step 2: Testar `getColumn()` usando `new Position(5,2)` e verificar que `getColumn()` retorna `2`.
@@ -79,7 +79,7 @@
     * Step 8: Testar `isOccupied()` e `isHit()` refletem corretamente os estados após `occupy()` e `shoot()`.
     * Step 9: Testar `toString()` para garantir que contém as palavras "Linha" e "Coluna" e os valores da posição (ex.: "7" e "8").
 
-* [unknown] C11 IPositionTest
+* [passed @LEI-112966] C11 IPositionTest
     tags: #unit-tests #test-cases
     * Step 1: Testar `getRow()` via interface `IPosition p = new Position(2,3)` e verificar que retorna 2.
     * Step 2: Testar `getColumn()` via interface `IPosition p = new Position(4,1)` e verificar que retorna 1.
@@ -96,7 +96,7 @@
     * Step 3: `charToCompass()` deve mapear caracteres minúsculos ('n','s','e','o') para o enum correspondente, caracteres desconhecidos e maiúsculas devem devolver `UNKNOWN`.
     * Step 4: `values()` deve retornar os 5 valores no array na ordem esperada e `valueOf()` deve funcionar para nomes válidos; `valueOf("INVALID")` deve lançar `IllegalArgumentException`.
 
-* [unknown] C13 ShipTest
+* [passed @LEI-112966] C13 ShipTest
     tags: #unit-tests #test-cases
     * Step 1: Preparação: criar um `Ship` concreto usado nos testes — aqui uma `Caravel(Compass.EAST, new Position(3,4))`.
     * Step 2: `getCategory()` deve devolver a categoria correta (no teste: "caravela", comparado em lowercase).
