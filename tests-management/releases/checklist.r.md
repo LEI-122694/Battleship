@@ -1,7 +1,7 @@
 # checklist
 
 ## Reports
-* [unknown] C1 Reports
+* [passed @LEI-122694] C1 Reports
     * Gerar reports html através do run with coverage
     * Mover reports para pasta específica
     * Verificar se os reports estão corretos
@@ -9,25 +9,25 @@
 
 
 ## Ships test cases
-* [unknown] C3 BargeTest
+* [passed @LEI-122694] C3 BargeTest
     tags: #unit-tests #test-cases
     * Step 1: Instanciar uma `Barge` com `bearing = Compass.NORTH` e `startPos = new Position(0,0)`.
     * Step 2: Verificar que `getCategory()` retorna "Barca", `getSize()` retorna 1, e `getBearing()` corresponde ao fornecido.
     * Step 3: Instanciar uma `Barge` em `Position(row=4, col=7)` e verificar que `getPositions()` tem tamanho 1 e que essa posição coincide com (4,7).
 
-* [unknown] C4 CaravelTest
+* [passed @LEI-122694] C4 CaravelTest
     tags: #unit-tests #test-cases
     * Step 1: Instanciar uma `Caravel` com `Compass.NORTH` em `Position(0,0)` e verificar `getCategory()` == "Caravela" e `getSize()` == 2.
     * Step 2: Para orientação `NORTH` (vertical) criar `Caravel(Compass.NORTH, new Position(2,5))` e verificar `getPositions()` tem 2 posições: a primeira é (2,5) e a segunda é (3,5).
     * Step 3: Para orientação `EAST` (horizontal) criar `Caravel(Compass.EAST, new Position(3,3))` e verificar `getPositions()` tem 2 posições: (3,3) e (3,4).
 
-* [unknown] C5 CarrackTest
+* [passed @LEI-122694] C5 CarrackTest
     tags: #unit-tests #test-cases
     * Step 1: Instanciar uma `Carrack` com `Compass.NORTH` em `Position(0,0)` e verificar `getCategory()` == "Nau" e `getSize()` == 3.
     * Step 2: Teste vertical (`SOUTH`/`NORTH`): criar `Carrack(Compass.SOUTH, new Position(1,1))` e verificar que ocupa (1,1), (2,1), (3,1).
     * Step 3: Teste horizontal (`WEST`/`EAST`): criar `Carrack(Compass.WEST, new Position(5,2))` e verificar que ocupa (5,2), (5,3), (5,4).
 
-* [unknown] C6 FleetTest
+* [passed @LEI-122694] C6 FleetTest
     tags: #unit-tests #test-cases
     * Step 1 (AddShip success): Instanciar `Fleet`, criar `Frigate` e chamar `fleet.addShip(frigate)`; verificar que retorna `true` e `fleet.getShips().size() == 1`.
     * Step 2 (Fleet full): Adicionar `IFleet.FLEET_SIZE` navios (por exemplo `new Frigate(...)`) e verificar que `fleet.addShip(frigate)` passa a retornar `false` quando a frota está cheia.
@@ -38,7 +38,7 @@
         * Sub-step: `shipAt(new Position(0,0))` devolve `frigate`; `shipAt(new Position(5,5))` devolve `galleon`; `shipAt(new Position(9,9))` devolve `null`.
     * Step 4 (Constraints): `addShip` deve recusar um `Frigate(Compass.EAST, new Position(9,8))` porque sairia do tabuleiro; também deve recusar um navio demasiado próximo (ex.: adicionar um `Frigate` em (0,0) e tentar outro em (1,0) deve retornar `false`).
 
-* [unknown] C7 FrigateTest
+* [passed @LEI-122694] C7 FrigateTest
     tags: #unit-tests #test-cases
     * Step 1: Verificar que `Frigate(...).getSize()` == 4.
     * Step 2 (NORTH): `Frigate(Compass.NORTH, new Position(2,3))` deve ter 4 posições: (2,3),(3,3),(4,3),(5,3) e `occupies(new Position(2,3))` deve ser `true`.
@@ -48,7 +48,7 @@
     * Step 6 (shoot & stillFloating): Instanciar `Frigate(Compass.EAST, new Position(0,0))`, verificar `stillFloating()` inicialmente `true`, dar `shoot()` em todas as posições e verificar que cada `IPosition.isHit()` passa a `true` e no final `stillFloating()` é `false`.
     * Step 7 (tooCloseTo): `Frigate(Compass.EAST, new Position(0,0))` é tooCloseTo outra `Frigate(Compass.EAST, new Position(1,0))` e não é tooCloseTo `Frigate` em (5,5).
 
-* [unknown] C8 GalleonTest
+* [passed @LEI-122694] C8 GalleonTest
     tags: #unit-tests #test-cases
     * Step 1: Verificar que `Galleon(...).getSize()` == 5.
     * Step 2 (NORTH shape): `Galleon(Compass.NORTH, new Position(2,3))` deve conter posições: (2,3),(2,4),(2,5),(3,4),(4,4); `getTopMostPos()` == 2 e `getBottomMostPos()` == 4.
@@ -58,7 +58,7 @@
     * Step 6 (shoot & stillFloating): Verificar que ao disparar em todas as posições exceto a última o navio ainda está a flutuar, e ao disparar a última posição `stillFloating()` passa a `false`.
     * Step 7 (tooCloseTo): `Galleon(0,0)` demasiado perto de `Galleon(2,1)` (true) e não demasiado perto de `Galleon(10,10)` (false).
 
-* [unknown] C9 IFleetTest
+* [passed @LEI-122694] C9 IFleetTest
     tags: #unit-tests #test-cases
     * Step 1: Usar `IFleet fleet = new Fleet()`; `fleet.addShip(frigate)` deve devolver `true` e `fleet.getShips().size() == 1`.
     * Step 2: Adicionar `frigate` e `galleon` e verificar `getShips()` tem ambos.
@@ -67,7 +67,7 @@
     * Step 5: `shipAt` comporta-se como em `FleetTest` (posições 0,0 e 5,5 retornam os navios adequados; 9,9 retorna `null`).
     * Step 6: `printStatus()` deve executar sem lançar exceções.
 
-* [unknown] C10 PositionTest
+* [passed @LEI-122694] C10 PositionTest
     tags: #unit-tests #test-cases
     * Step 1: Testar `getRow()` usando `new Position(5,2)` e verificar que `getRow()` retorna `5`.
     * Step 2: Testar `getColumn()` usando `new Position(5,2)` e verificar que `getColumn()` retorna `2`.
@@ -79,7 +79,7 @@
     * Step 8: Testar `isOccupied()` e `isHit()` refletem corretamente os estados após `occupy()` e `shoot()`.
     * Step 9: Testar `toString()` para garantir que contém as palavras "Linha" e "Coluna" e os valores da posição (ex.: "7" e "8").
 
-* [unknown] C11 IPositionTest
+* [passed @LEI-122694] C11 IPositionTest
     tags: #unit-tests #test-cases
     * Step 1: Testar `getRow()` via interface `IPosition p = new Position(2,3)` e verificar que retorna 2.
     * Step 2: Testar `getColumn()` via interface `IPosition p = new Position(4,1)` e verificar que retorna 1.
@@ -89,14 +89,14 @@
     * Step 6: Testar `shoot()` via interface altera `isHit()` para true.
     * Step 7: Testar `isOccupied()` e `isHit()` refletem corretamente os estados após as chamadas anteriores.
 
-* [unknown] C12 CompassTest
+* [passed @LEI-122694] C12 CompassTest
     tags: #unit-tests #test-cases
     * Step 1: Verificar `getDirection()` para cada enum: `NORTH->'n'`, `SOUTH->'s'`, `EAST->'e'`, `WEST->'o'`, `UNKNOWN->'u'`.
     * Step 2: `toString()` deve devolver o código de direção como string ("n","s","e","o","u").
     * Step 3: `charToCompass()` deve mapear caracteres minúsculos ('n','s','e','o') para o enum correspondente, caracteres desconhecidos e maiúsculas devem devolver `UNKNOWN`.
     * Step 4: `values()` deve retornar os 5 valores no array na ordem esperada e `valueOf()` deve funcionar para nomes válidos; `valueOf("INVALID")` deve lançar `IllegalArgumentException`.
 
-* [unknown] C13 ShipTest
+* [passed @LEI-122694] C13 ShipTest
     tags: #unit-tests #test-cases
     * Step 1: Preparação: criar um `Ship` concreto usado nos testes — aqui uma `Caravel(Compass.EAST, new Position(3,4))`.
     * Step 2: `getCategory()` deve devolver a categoria correta (no teste: "caravela", comparado em lowercase).
@@ -118,7 +118,7 @@
 
 
 ## Unit tests
-* [unknown] C2 Unit tests
+* [passed @LEI-122694] C2 Unit tests
     * executar mvn test ou run tests no IDE
     * verificar o resultado dos testes
     * analisar falhas e erros
