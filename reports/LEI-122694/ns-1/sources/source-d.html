@@ -1,0 +1,109 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > IPosition</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">iscteiul.ista.battleship</a>
+</div>
+
+<h1>Coverage Summary for Class: IPosition (iscteiul.ista.battleship)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">IPosition</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/**
+&nbsp; * Represents a cell position on the Battleship board.
+&nbsp; * &lt;p&gt;
+&nbsp; * Implementations store the row/column coordinates and expose operations to
+&nbsp; * query adjacency, occupancy and hit status as well as ways to mark a position
+&nbsp; * as occupied or shot. Positions are value objects used by ships and the game
+&nbsp; * engine to track board state.
+&nbsp; */
+&nbsp;package iscteiul.ista.battleship;
+&nbsp;
+&nbsp;/**
+&nbsp; * @author fba
+&nbsp; */
+&nbsp;public interface IPosition {
+&nbsp;    /** Returns the row index of this position (typically 0-based). */
+&nbsp;    int getRow();
+&nbsp;
+&nbsp;    /** Returns the column index of this position (typically 0-based). */
+&nbsp;    int getColumn();
+&nbsp;
+&nbsp;    /** Equality based on coordinates (row and column). */
+&nbsp;    boolean equals(Object other);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Checks whether this position is adjacent to another position. Adjacent
+&nbsp;     * usually means row and column difference no greater than 1.
+&nbsp;     */
+&nbsp;    boolean isAdjacentTo(IPosition other);
+&nbsp;
+&nbsp;    /** Marks this position as occupied by a ship. */
+&nbsp;    void occupy();
+&nbsp;
+&nbsp;    /** Marks this position as having been shot. */
+&nbsp;    void shoot();
+&nbsp;
+&nbsp;    /** Returns true if a ship occupies this position. */
+&nbsp;    boolean isOccupied();
+&nbsp;
+&nbsp;    /** Returns true if this position has been hit by a shot. */
+&nbsp;    boolean isHit();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-11-21 15:22</div>
+</div>
+</body>
+</html>

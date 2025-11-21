@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > IFleet</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">iscteiul.ista.battleship</a>
+</div>
+
+<h1>Coverage Summary for Class: IFleet (iscteiul.ista.battleship)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">IFleet</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/**
+&nbsp; * Represents a collection of ships (fleet) and provides operations to manage
+&nbsp; * and query ships placed on the Battleship board.
+&nbsp; * &lt;p&gt;
+&nbsp; * Implementations are responsible for enforcing placement constraints (board
+&nbsp; * bounds, no collisions / too-close placement) and exposing query methods used
+&nbsp; * by the game engine and UI tasks.
+&nbsp; */
+&nbsp;package iscteiul.ista.battleship;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;public interface IFleet {
+&nbsp;    /** Number of rows/columns of the board. */
+<b class="nc">&nbsp;    Integer BOARD_SIZE = 10;</b>
+&nbsp;    /** Maximum number of ships in a fleet. */
+<b class="nc">&nbsp;    Integer FLEET_SIZE = 10;</b>
+&nbsp;
+&nbsp;    /** Returns the list of ships currently registered in the fleet. */
+&nbsp;    List&lt;IShip&gt; getShips();
+&nbsp;
+&nbsp;    /** Attempts to add a ship to the fleet. Returns true when added. */
+&nbsp;    boolean addShip(IShip s);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the ships whose category matches the provided category string.
+&nbsp;     *
+&nbsp;     * @param category category to filter by
+&nbsp;     */
+&nbsp;    List&lt;IShip&gt; getShipsLike(String category);
+&nbsp;
+&nbsp;    /** Returns a list with the ships that are still floating (not sunk). */
+&nbsp;    List&lt;IShip&gt; getFloatingShips();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the ship occupying the given position or null when none does.
+&nbsp;     *
+&nbsp;     * @param pos the board position to query
+&nbsp;     */
+&nbsp;    IShip shipAt(IPosition pos);
+&nbsp;
+&nbsp;    /** Prints a concise status report about the fleet. */
+&nbsp;    void printStatus();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-11-21 15:22</div>
+</div>
+</body>
+</html>
